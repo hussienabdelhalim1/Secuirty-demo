@@ -1,0 +1,80 @@
+<html>
+<head><title>🔴 Security Alert</title>
+<style>
+body { background: linear-gradient(#1a1a2e, #16213e); color: white; text-align: center; font-family: Arial; padding-top: 40px; }
+h1 { font-size: 45px; animation: pulse 1s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+p { font-size: 18px; margin: 10px; }
+.box { background: #0f3460; padding: 20px; margin: 20px auto; width: 90%; max-width: 400px; border-radius: 10px; border: 2px solid #e94560; }
+.warning { color: #e94560; font-weight: bold; }
+button { padding: 15px 40px; font-size: 20px; background: #e94560; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+button:hover { background: #ff6b6b; }
+</style>
+</head>
+<body>
+
+<script>
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+if (navigator.vibrate) {
+    navigator.vibrate([500, 200, 500, 200, 500]);
+}
+
+var ua = navigator.userAgent;
+var device, os, brand;
+
+if (/iPhone|iPad|iPod/.test(ua)) {
+    device = "📱 iPhone"; os = "iOS 17.5.1"; brand = "🍎 Apple";
+} else if (/Android/.test(ua)) {
+    device = "📱 Android Phone"; os = "Android 14"; brand = "🤖 Google";
+} else if (/Mac/.test(ua)) {
+    device = "💻 MacBook"; os = "macOS Sonoma"; brand = "🍎 Apple";
+} else if (/Windows/.test(ua)) {
+    device = "🖥️ Windows PC"; os = "Windows 11 Pro"; brand = "🪟 Microsoft";
+} else {
+    device = "💻 Unknown Device"; os = "Unknown OS"; brand = "Unknown";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("device").innerText = device;
+    document.getElementById("os").innerText = os;
+    document.getElementById("brand").innerText = brand;
+});
+</script>
+
+<h1>🚨 SECURITY BREACH 🚨</h1>
+<div class="box">
+<p class="warning">⚠️ YOUR DEVICE HAS BEEN COMPROMISED ⚠️</p>
+<p>📱 Device: <span id="device">detecting...</span></p>
+<p>⚙️ OS: <span id="os">detecting...</span></p>
+<p>🏷️ Manufacturer: <span id="brand">detecting...</span></p>
+<p>🌍 IP Address: <span id="ip">scanning...</span></p>
+<p>📍 Location: <span id="loc">detecting...</span></p>
+<p>🦠 Threat: Trojan.Emotet.Ransomware</p>
+<p>📁 Files at risk: <span id="files">calculating...</span></p>
+<p>⏰ Encryption starts in <span style="color:#e94560;font-size:24px;" id="timer">60</span> seconds</p>
+</div>
+<button onclick="reveal()">➡️ Click Next To Proceed</button>
+<br><br>
+<p style="font-size:12px;color:gray;">🔒 Security Operations Center</p>
+
+<script>
+fetch('https://api.ipify.org?format=json')
+  .then(r=>r.json())
+  .then(d=>document.getElementById('ip').innerText=d.ip);
+
+document.getElementById('files').innerText = Math.floor(Math.random()*50000 + 5000).toLocaleString();
+
+let count = 60;
+setInterval(()=>{
+  count--;
+  if(count>0) document.getElementById('timer').innerText = count;
+  else document.getElementById('timer').innerText = "⚠️ STARTED";
+}, 1000);
+
+function reveal() {
+  alert("😂 GOTCHAAAA! This was a prank BY THE EGYPTION  TOWER !\n\n👋 From: YOUR_NAME\n\nThis page is 100% harmless.\n\n📚 LESSON:\n- Always check URLs before clicking\n- Scary popups are easy to fake\n- Your IP and device info was shown just by visiting a link\n\n❤️ Share this lesson, not fear.\n\n🛡️ Stay safe online!");
+  document.body.innerHTML = "<h1 style='color:green;padding-top:100px;'>✅ YOU PASSED THE TEST!</h1><p>This was a security awareness prank.</p><p>Now you know how easy it is to be tricked.</p><p style='font-size:50px;'>🧠💪🔒</p>";
+}
+</script>
+</body>
+</html>

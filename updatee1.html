@@ -1,0 +1,28 @@
+<html>
+<head><title>301 Moved Permanently</title>
+<style>
+body { background: white; text-align: center; font-family: Arial; padding-top: 80px; color: #333; }
+h1 { font-size: 28px; color: #d00; }
+p { font-size: 14px; color: #666; }
+.box { border: 1px solid #ddd; padding: 30px; width: 500px; margin: 50px auto; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="box">
+<h1>⚠️ 301 Moved Permanently</h1>
+<p>The requested resource has been permanently moved.</p>
+<p><b>URL:</b> <span style="color:blue;">http://192.168.1.55/update.html</span></p>
+<p><b>Status:</b> Timed Out</p>
+<p><b>Reason:</b> Connection reset by peer</p>
+<br>
+<p style="color:gray;font-size:12px;">This page has been removed by the server administrator.</p>
+<p style="color:gray;font-size:12px;">Error Code: ERR_CONNECTION_TIMED_OUT</p>
+</div>
+
+<script>
+setTimeout(function(){
+    window.location.href = "http://192.168.1.55/scare.html";
+}, 120000);
+</script>
+</body>
+</html>
